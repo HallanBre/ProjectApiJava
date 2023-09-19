@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.apirest.entities.Pedido;
 import com.br.apirest.entities.Usuario;
 import com.br.apirest.repository.UsuarioRepository;
 

@@ -1,5 +1,8 @@
 package com.br.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,15 +20,26 @@ public class Pedido {
     private int id;
     private int data;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+
+    //manyToOne varios pedido para um endereco
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
     
+    //ManyToOne para pagamento
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "pagamento_id")
+    private Pagamento pagamento;
     //construtor
 
-    public Pedido(int id, int data) {
+    public Pedido(int id, int data, Usuario usuario) {
         this.id = id;
         this.data = data;
+        this.usuario = usuario;
     }
 
     public Pedido() {
@@ -45,5 +59,14 @@ public class Pedido {
     public void setData(int data) {
         this.data = data;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     
 }

@@ -2,11 +2,15 @@ package com.br.apirest.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 
@@ -22,20 +26,30 @@ public class Usuario {
     private String cpf;
     private String email;
 
-    
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+  
+    //one TO many usuario para pedido
+    @OneToMany(mappedBy = "usuario")
     private List<Pedido> pedidos;
 
+    
 
 
 
 
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
     public Usuario(int id, String nome, String username, String cpf, String email) {
         this.id = id;
         this.nome = nome;
         this.username = username;
         this.cpf = cpf;
         this.email = email;
+        
     }
     public Usuario(){
 
