@@ -1,6 +1,18 @@
-import java.util.List;
+package com.br.apirest.api.controller;
 
-import main.java.com.br.apirest.repository.EnderecoRepository;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.br.apirest.entities.Endereco;
+import com.br.apirest.repository.EnderecoRepository;
 
 @RestController
 @RequestMapping(value = "/endereco")
@@ -20,10 +32,11 @@ public class EnderecoController {
     }
 
     @PostMapping("/cadastro")
-    public Endreco endereco(Endereco endereco){
+    public Endereco endereco(Endereco endereco){
         eRepository.save(endereco);
         return endereco;
     }
 
+    
     
 }
