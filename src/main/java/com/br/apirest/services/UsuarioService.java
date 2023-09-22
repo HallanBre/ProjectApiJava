@@ -1,5 +1,7 @@
 package com.br.apirest.services;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository repository;
     public List<Usuario> listaUsuario(){
+    List<Usuario> usuarios = new ArrayList<>();
+    usuarios = repository.findAll();
+    return usuarios;
         
     }
     

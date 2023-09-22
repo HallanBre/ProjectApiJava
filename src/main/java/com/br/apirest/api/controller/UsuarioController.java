@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.br.apirest.entities.Usuario;
 import com.br.apirest.repository.UsuarioRepository;
+import com.br.apirest.services.UsuarioService;
 
 @RestController
 @RequestMapping(value = "/usuario")
@@ -20,16 +21,14 @@ public class UsuarioController {
     @Autowired
     UsuarioRepository uRepository;
 
+    @Autowired
+    UsuarioService service;
+
 
 
     @GetMapping("/lista")//listar todos o usuarios dentro do Bd
-    public List<Usuario> getObject(){
-
-        List<Usuario> usuarios = new ArrayList<>();
-        usuarios = (List<Usuario>) uRepository.findAll();
-        
-
-        return usuarios; 
+    public List<Usuario> ListaUsuarios(){
+        return service.listaUsuario(); 
     }
 
     
