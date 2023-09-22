@@ -33,27 +33,21 @@ public class UsuarioController {
 
     
     @PostMapping("/cadastro") // receber informações do cadastro de usuarios
-    public Usuario cadastro(Usuario usuario){
-        uRepository.save(usuario);
-        return usuario;
+    public String cadastro(Usuario usuario){
+        return service.salvar(usuario);
     }
 
 
     
     @GetMapping("/busca/{id}")
     public Usuario getObjectId(@PathVariable("id") int id){
-
-        Usuario usuario = new Usuario();
-        usuario = uRepository.findById(id);
-
-        return usuario;
+        return service.buscaID(id);
     }
 
     @GetMapping("/excluir/{id}")
-    public Usuario DeleteId(@PathVariable("id") int id){
-        Usuario usuario = new Usuario();
-        uRepository.deleteById(id);
-        return usuario;
+    public String DeleteId(@PathVariable("id") int id){
+       
+        return service.excluirID(id);
 
     }
     

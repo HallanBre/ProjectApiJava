@@ -15,11 +15,33 @@ public class UsuarioService {
     
     @Autowired
     UsuarioRepository repository;
+
+    //LISTAR
     public List<Usuario> listaUsuario(){
     List<Usuario> usuarios = new ArrayList<>();
     usuarios = repository.findAll();
     return usuarios;
         
     }
+
+    public String salvar(Usuario usuario){
+        repository.save(usuario);
+        return "";
+    }
+
+    public Usuario buscaID(int id){
+
+        Usuario usuario = new Usuario();
+        usuario = repository.findById(id);
+        return usuario;
+
+    }
+
+    public String excluirID(int id){
+        Usuario usuario = new Usuario();
+        repository.deleteById(id);
+        return "";
+    }
+
     
 }
