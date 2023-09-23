@@ -8,7 +8,7 @@ import com.br.apirest.entities.Pedido;
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Integer> {
 
-
+    Pedido findById(int id);
     
 }
 

@@ -19,9 +19,6 @@ import com.br.apirest.services.UsuarioService;
 public class UsuarioController {
 
     @Autowired
-    UsuarioRepository uRepository;
-
-    @Autowired
     UsuarioService service;
 
 

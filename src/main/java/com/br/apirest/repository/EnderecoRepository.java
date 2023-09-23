@@ -5,10 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.br.apirest.entities.Endereco;
 
+
 @Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
-
+ Endereco findById(int id);
     
 }
 

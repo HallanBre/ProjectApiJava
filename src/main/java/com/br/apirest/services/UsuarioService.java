@@ -38,7 +38,7 @@ public class UsuarioService {
     }
 
     public String excluirID(int id){
-        Usuario usuario = new Usuario();
+       
         repository.deleteById(id);
         return "";
     }
