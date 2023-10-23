@@ -13,7 +13,7 @@ import com.br.apirest.entities.Pagamento;
 import com.br.apirest.services.PagamentoService;
 
 @RestController
-@RequestMapping(value = "/pedido")
+@RequestMapping(value = "/pagamento")
 public class PagamentoController {
 
     @Autowired
